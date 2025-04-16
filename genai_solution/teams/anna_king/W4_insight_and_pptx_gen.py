@@ -77,22 +77,22 @@ def llm_query_df(month):
     product_data = load_product_data()
     one_month_product_data = product_data[product_data["order_month"] == month]
 
-    snip_1 = one_month_product_data.sort_values("total_price", ascending=False).head()
-    snip_2 = one_month_product_data.sort_values("unique_orders", ascending=False).head()
-    snip_3 = one_month_product_data.sort_values("MoM_total_price", ascending=False).head()
-    snip_4 = one_month_product_data.sort_values("MoM_total_price", ascending=True).head()
-    snip_5 = one_month_product_data.sort_values("YoY_total_price", ascending=False).head()
-    snip_6 = one_month_product_data.sort_values("YoY_total_price", ascending=True).head()
+    # snip_1 = one_month_product_data.sort_values("total_price", ascending=False).head()
+    # snip_2 = one_month_product_data.sort_values("unique_orders", ascending=False).head()
+    # snip_3 = one_month_product_data.sort_values("MoM_total_price", ascending=False).head()
+    # snip_4 = one_month_product_data.sort_values("MoM_total_price", ascending=True).head()
+    # snip_5 = one_month_product_data.sort_values("YoY_total_price", ascending=False).head()
+    # snip_6 = one_month_product_data.sort_values("YoY_total_price", ascending=True).head()
 
-    highest_earners = gen_insight(snip_1, "highest earning")
-    most_ordered = gen_insight(snip_2, "most ordered")
-    high_monthly_growth = gen_insight(snip_3, "fastest growing (monthly)")
-    high_yearly_growth = gen_insight(snip_5, "fastest growing (yearly)")
+    # highest_earners = gen_insight(snip_1, "highest earning")
+    # most_ordered = gen_insight(snip_2, "most ordered")
+    # high_monthly_growth = gen_insight(snip_3, "fastest growing (monthly)")
+    # high_yearly_growth = gen_insight(snip_5, "fastest growing (yearly)")
 
-    i1 = [i for i in highest_earners.split("\n")[1:] if len(i) > 0]
-    i2 = [i for i in most_ordered.split("\n")[1:] if len(i) > 0]
-    i3 = [i for i in high_monthly_growth.split("\n")[1:] if len(i) > 0]
-    i4 = [i for i in high_yearly_growth.split("\n")[1:] if len(i) > 0]
+    # i1 = [i for i in highest_earners.split("\n")[1:] if len(i) > 0]
+    # i2 = [i for i in most_ordered.split("\n")[1:] if len(i) > 0]
+    # i3 = [i for i in high_monthly_growth.split("\n")[1:] if len(i) > 0]
+    # i4 = [i for i in high_yearly_growth.split("\n")[1:] if len(i) > 0]
 
     insights = ['Computers and accessories is the highest-earning product category in January 2018, with total sales of $44,707.58.',
                 'Watches and gifts category shows the highest year-over-year growth in unique orders (16.09%) and unique customers (15.91%), despite having the lowest total sales among the top categories.',
@@ -109,7 +109,7 @@ def llm_query_df(month):
 
 
 st.title("PowerPoint Generation")
-st.subheader("Perfomance Review Demo")
+st.subheader("Performance Review Demo")
 st.write(
     """This app is a proof of concept for the use of Generative AI to extract insights from performance data, and generate a PowerPoint.
     """
@@ -297,4 +297,4 @@ if create:
     # Save the presentation
     prs.save("Performance Insights.pptx")
 
-    st.write("PowerPoint Created!")
+    
